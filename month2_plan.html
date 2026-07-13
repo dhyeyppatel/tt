@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>CAT 2026 - Month 2 Plan | Jul 13 to Aug 13</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0b0d17;--card:#141728;--card2:#1a1f3a;--border:rgba(255,255,255,0.07);
+  --q:#f59e0b;--qb:rgba(245,158,11,.15);
+  --v:#8b5cf6;--vb:rgba(139,92,246,.15);
+  --d:#06b6d4;--db:rgba(6,182,212,.15);
+  --r:#ef4444;--rb:rgba(239,68,68,.15);
+  --g:#22c55e;--gb:rgba(34,197,94,.15);
+  --o:#fb923c;--ob:rgba(251,146,60,.15);
+  --b:#3b82f6;--bb:rgba(59,130,246,.15);
+  --p:#a855f7;--pb:rgba(168,85,247,.15);
+  --muted:#94a3b8;--text:#f1f5f9;--accent:#6366f1;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+button{touch-action:manipulation;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;padding-bottom:env(safe-area-inset-bottom);}
+
+header{background:linear-gradient(135deg,#1e1b4b 0%,#0b0d17 70%);border-bottom:1px solid var(--border);padding:24px 20px 20px;position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,.18) 0%,transparent 70%);top:-200px;right:-80px;pointer-events:none;}
+.hinner{max-width:1280px;margin:0 auto;position:relative;}
+.htag{display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.4);border-radius:20px;padding:3px 14px;font-size:11px;font-weight:700;color:#a5b4fc;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(20px,3.5vw,40px);font-weight:800;background:linear-gradient(135deg,#fff 0%,#a5b4fc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px;}
+.hsub{color:var(--muted);font-size:13px;margin-bottom:16px;line-height:1.5;}
+.hbadges{display:flex;flex-wrap:wrap;gap:7px;}
+.hb{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:500;color:var(--muted);}
+.hb span{font-weight:700;color:var(--text);}
+
+.tabs{display:flex;gap:2px;max-width:1280px;margin:20px auto 0;padding:0 20px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tb{background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:10px 10px 0 0;padding:9px 15px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;border-bottom:none;white-space:nowrap;flex-shrink:0;}
+.tb.active{background:var(--card2);color:var(--text);}
+.tb:hover:not(.active){color:var(--text);}
+
+main{max-width:1280px;margin:0 auto;padding:0 20px 60px;background:var(--card2);border:1px solid var(--border);border-top:none;border-radius:0 0 16px 16px;}
+.panel{display:none;padding-top:22px;}
+.panel.active{display:block;}
+
+.sec-title{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin:24px 0 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sec-title .badge{font-size:10px;font-weight:700;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:2px 9px;}
+
+/* TIME STRUCTURE */
+.time-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:28px;}
+.time-col{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.time-col-hdr{padding:12px 16px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.time-slot{display:flex;align-items:stretch;border-top:1px solid var(--border);}
+.ts-time{min-width:108px;padding:10px 12px;font-size:10px;font-weight:700;color:var(--muted);border-right:1px solid var(--border);display:flex;align-items:center;flex-shrink:0;line-height:1.4;}
+.ts-act{padding:10px 12px;font-size:12px;font-weight:500;flex:1;line-height:1.4;}
+
+/* QA TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin-bottom:24px;}
+.qa-table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
+.qa-table th{background:#1e293b;padding:10px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border);}
+.qa-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.qa-table tr:last-child td{border-bottom:none;}
+.qa-table tr:hover td{background:rgba(255,255,255,.025);}
+.tnum{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;}
+.done{display:inline-flex;align-items:center;gap:4px;background:var(--gb);color:var(--g);border-radius:6px;padding:2px 8px;font-size:10px;font-weight:700;}
+
+/* MOCK CARDS */
+.mock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:24px;}
+.mc{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.mc-hdr{padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.mc-date{font-size:13px;font-weight:800;}
+.mc-type{font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;}
+.mc-body{padding:10px 14px;font-size:11px;line-height:1.7;color:var(--muted);}
+.mc-body b{color:var(--text);}
+
+/* WEEK CARDS */
+.week-goal{background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(168,85,247,.08));border:1px solid rgba(99,102,241,.3);border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:12px;line-height:1.6;color:#c7d2fe;}
+.week-goal b{color:#a5b4fc;font-size:13px;display:block;margin-bottom:4px;}
+.days-grid{display:flex;flex-direction:column;gap:14px;}
+.dc{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.dc-hdr{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);}
+.dc-num{font-size:24px;font-weight:900;font-family:'Outfit',sans-serif;min-width:42px;line-height:1;}
+.dc-info{flex:1;}
+.dc-name{font-size:14px;font-weight:800;margin-bottom:2px;}
+.dc-sub{font-size:11px;color:var(--muted);}
+.dc-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0;}
+.dc-body{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));}
+.dc-sec{padding:11px 14px;border-right:1px solid var(--border);border-top:1px solid var(--border);}
+.dc-sec:last-child{border-right:none;}
+.dc-sec-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;}
+.dc-sec-val{font-size:11px;line-height:1.6;color:var(--text);}
+
+/* TRACKER TABLES */
+.tr-info{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:11px;line-height:1.7;color:var(--muted);}
+.tr-info b{color:var(--text);}
+.tr-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin-bottom:24px;}
+.tr-tbl{width:100%;border-collapse:collapse;font-size:11px;min-width:580px;}
+.tr-tbl th{background:#1e293b;padding:9px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border);white-space:nowrap;}
+.tr-tbl td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.tr-tbl tr:last-child td{border-bottom:none;}
+.tr-tbl tr:hover td{background:rgba(255,255,255,.025);}
+.tr-tbl .srow td{background:rgba(168,85,247,.07);}
+.tr-tbl .srow td:first-child,.tr-tbl .srow td:nth-child(2){color:var(--v);font-weight:700;}
+.sc{text-align:center;font-weight:700;color:var(--muted);background:rgba(255,255,255,.04);border-radius:4px;}
+
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-thumb{background:#334155;border-radius:3px;}
+
+@media(max-width:480px){
+  header{padding:14px 12px;}
+  h1{font-size:19px;}
+  .tabs{padding:0 8px;}
+  .tb{padding:8px 10px;font-size:11px;}
+  main{padding:0 10px 40px;}
+  .panel{padding-top:14px;}
+  .sec-title{font-size:15px;margin:16px 0 10px;}
+  .time-grid{grid-template-columns:1fr;}
+  .ts-time{min-width:88px;font-size:9px;}
+  .mock-grid{grid-template-columns:1fr;}
+  .dc-body{grid-template-columns:1fr;}
+  .dc-sec{border-right:none;}
+  .dc-hdr{flex-wrap:wrap;}
+}
+@media(min-width:481px) and (max-width:768px){
+  .time-grid{grid-template-columns:1fr;}
+  .dc-body{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="hinner">
+  <div class="htag">&#127919; CAT 2026 Prep</div>
+  <h1>Month 2 Study Plan</h1>
+  <p class="hsub">July 13 &ndash; August 13, 2026 &nbsp;&middot;&nbsp; IMS Vadodara &middot; Batch 26CA06 &middot; Siddharth Sir &middot; <a href="august_schedule.html" style="color:#a5b4fc;text-decoration:none;">&#8592; Back to Full Schedule</a></p>
+  <div class="hbadges">
+    <div class="hb">&#127981; College <span>8:00&ndash;11:20 AM</span></div>
+    <div class="hb">&#128218; IMS Class <span>1:00&ndash;3:00 PM</span></div>
+    <div class="hb">&#128208; QA Session <span>3:00&ndash;5:30 PM</span></div>
+    <div class="hb">&#128290; DILR <span>8:30&ndash;9:30 PM</span></div>
+    <div class="hb">&#128214; VARC <span>9:30&ndash;10:30 PM</span></div>
+    <div class="hb">&#9749; Break <span>6:00&ndash;8:30 PM</span></div>
+  </div>
+</div>
+</header>
+
+<div class="tabs">
+  <button class="tb active" id="btn-ov">&#128203; Overview</button>
+  <button class="tb" id="btn-w1">W1: 13&ndash;19 Jul</button>
+  <button class="tb" id="btn-w2">W2: 20&ndash;26 Jul</button>
+  <button class="tb" id="btn-w3">W3: 27 Jul&ndash;2 Aug</button>
+  <button class="tb" id="btn-w4">W4: 3&ndash;9 Aug</button>
+  <button class="tb" id="btn-w5">W5: 10&ndash;13 Aug</button>
+  <button class="tb" id="btn-varc">&#128214; VARC Tracker</button>
+  <button class="tb" id="btn-dilr">&#128290; DILR Tracker</button>
+</div>
+
+<main>
+
+<!-- OVERVIEW -->
+<div class="panel active" id="tab-ov">
+
+  <div class="sec-title">&#128197; Daily Time Structure</div>
+  <div class="time-grid">
+    <div class="time-col">
+      <div class="time-col-hdr" style="background:rgba(59,130,246,.15);color:#60a5fa;">&#127981; Mon&ndash;Sat (College Days)</div>
+      <div class="time-slot"><div class="ts-time">8:00&ndash;11:20 AM</div><div class="ts-act">&#127981; COLLEGE &mdash; TY BBA 5th Semester</div></div>
+      <div class="time-slot"><div class="ts-time">11:20 AM&ndash;1:00 PM</div><div class="ts-act">&#128694; Travel to IMS + Light revision / Formula review</div></div>
+      <div class="time-slot"><div class="ts-time">1:00&ndash;3:00 PM</div><div class="ts-act" style="color:#fb923c;">&#128420; IMS CLASS &mdash; Siddharth Sir (Mon/Wed/Fri/Sat)</div></div>
+      <div class="time-slot"><div class="ts-time">3:00&ndash;5:30 PM</div><div class="ts-act" style="color:var(--q);">&#128208; SESSION 1 &mdash; QA (Topic study + IMS Q-bank drill)</div></div>
+      <div class="time-slot"><div class="ts-time">5:30&ndash;6:00 PM</div><div class="ts-act">&#128663; TRAVEL HOME &mdash; 30 min commute</div></div>
+      <div class="time-slot"><div class="ts-time" style="color:#f87171;">6:00&ndash;8:30 PM</div><div class="ts-act" style="color:#64748b;">&#127869; BREAK &mdash; Dinner &middot; Rest &middot; Family (DO NOT STUDY)</div></div>
+      <div class="time-slot"><div class="ts-time">8:30&ndash;9:30 PM</div><div class="ts-act" style="color:var(--d);">&#128290; DILR &mdash; 2 sets (25 min each, strictly timed)</div></div>
+      <div class="time-slot"><div class="ts-time">9:30&ndash;10:30 PM</div><div class="ts-act" style="color:var(--v);">&#128214; VARC &mdash; 3 RC passages</div></div>
+      <div class="time-slot"><div class="ts-time">10:30 PM+</div><div class="ts-act" style="color:var(--p);">&#128187; IMS ONLINE CLASS (when scheduled &mdash; attend without fail)</div></div>
+    </div>
+    <div class="time-col">
+      <div class="time-col-hdr" style="background:rgba(168,85,247,.15);color:#c084fc;">&#9728; Sunday (No College &middot; No IMS)</div>
+      <div class="time-slot"><div class="ts-time">9:00 AM&ndash;12:00 PM</div><div class="ts-act" style="color:var(--o);">&#127919; CMAT Test OR Mock / QA Study (when no test)</div></div>
+      <div class="time-slot"><div class="ts-time">12:00&ndash;1:00 PM</div><div class="ts-act">&#128202; Quick analysis + Lunch break</div></div>
+      <div class="time-slot"><div class="ts-time">1:00&ndash;3:00 PM</div><div class="ts-act" style="color:var(--q);">&#128208; QA &mdash; Topic continuation or PYQ drill</div></div>
+      <div class="time-slot"><div class="ts-time">3:00&ndash;5:30 PM</div><div class="ts-act" style="color:var(--d);">&#128290; DILR &mdash; 4 sets (all different types, 25 min each)</div></div>
+      <div class="time-slot"><div class="ts-time">5:30&ndash;6:00 PM</div><div class="ts-act">&#128663; Travel / Freshen up</div></div>
+      <div class="time-slot"><div class="ts-time" style="color:#f87171;">6:00&ndash;8:30 PM</div><div class="ts-act" style="color:#64748b;">&#127869; BREAK &mdash; Dinner &middot; Rest (DO NOT STUDY)</div></div>
+      <div class="time-slot"><div class="ts-time">8:30&ndash;10:30 PM</div><div class="ts-act" style="color:var(--v);">&#128214; VARC &mdash; 6 RC passages (full Sunday session)</div></div>
+    </div>
+    <div class="time-col">
+      <div class="time-col-hdr" style="background:rgba(6,182,212,.15);color:#22d3ee;">&#9888; Weekday Session 2 Split Note</div>
+      <div class="time-slot"><div class="ts-time">8:30&ndash;9:30 PM</div><div class="ts-act" style="color:var(--d);">&#128290; DILR &mdash; 2 sets &times; 25 min (strictly timed, never same type)</div></div>
+      <div class="time-slot"><div class="ts-time">9:30&ndash;10:30 PM</div><div class="ts-act" style="color:var(--v);">&#128214; VARC &mdash; 3 RC passages</div></div>
+      <div class="time-slot"><div class="ts-time">During day</div><div class="ts-act">Remaining 3 RC: 2 during lunch gap + 1 after college before IMS arrives</div></div>
+      <div class="time-slot"><div class="ts-time" style="color:#fb923c;">Portal</div><div class="ts-act" style="color:#fb923c;">myimsv3.imsindia.com &mdash; check for online class schedule daily</div></div>
+    </div>
+  </div>
+
+  <div class="sec-title">&#128208; QA Topic Plan &mdash; Geometry &amp; Set Theory <span class="badge">Month 2</span></div>
+  <div class="tbl-wrap">
+  <table class="qa-table">
+    <thead><tr><th>#</th><th>Topic</th><th>Days</th><th>Dates</th><th>Daily QA Target</th><th>IMS Alignment</th><th>Milestone</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tnum" style="background:var(--qb);color:var(--q);">1</span></td><td><b>Set Theory</b></td><td>4</td><td>13&ndash;16 Jul</td><td>Theory + Venn 2&amp;3 circle + 20&ndash;25 IMS Qs/day</td><td>10 PM Online: Set Theory maxima-minima 22 &amp; 29 Jul</td><td><span class="done">&#10003; Done by 16 Jul</span></td></tr>
+      <tr><td><span class="tnum" style="background:var(--db);color:var(--d);">2</span></td><td><b>Lines, Angles &amp; Triangles</b></td><td>4</td><td>17&ndash;20 Jul</td><td>Theorems + angle properties + 20 IMS Qs/day</td><td>DI 4.1 class 17 Jul &mdash; geometry mindset</td><td><span class="done">&#10003; Done by 20 Jul</span></td></tr>
+      <tr><td><span class="tnum" style="background:var(--gb);color:var(--g);">3</span></td><td><b>Triangles &ndash; Part 1</b></td><td>3</td><td>21&ndash;23 Jul</td><td>Congruence, similarity + 25 IMS Qs/day</td><td>QA 4.5A Basic P&amp;C (24 Jul) &mdash; different module</td><td><span class="done">&#10003; Done by 23 Jul</span></td></tr>
+      <tr><td><span class="tnum" style="background:var(--rb);color:var(--r);">4</span></td><td><b>Triangles &ndash; Part 2</b></td><td>3</td><td>24&ndash;26 Jul</td><td>Special triangles, centres + PYQs (30 Qs timed)</td><td>SimCAT 7 VARC Analysis 7 PM 24 Jul</td><td><span class="done">&#10003; Done by 26 Jul</span></td></tr>
+      <tr><td><span class="tnum" style="background:var(--ob);color:var(--o);">5</span></td><td><b>Polygons &amp; Quadrilaterals</b></td><td>3</td><td>27&ndash;29 Jul</td><td>Properties + diagonals + area (25 IMS Qs/day)</td><td>QA 4.5B Basic P&amp;C-I B (27 Jul)</td><td><span class="done">&#10003; Done by 29 Jul</span></td></tr>
+      <tr><td><span class="tnum" style="background:var(--bb);color:var(--b);">6</span></td><td><b>Circles</b></td><td>4</td><td>30 Jul&ndash;2 Aug</td><td>Chord/tangent/secant + arcs + 25 IMS Qs/day</td><td>LR 4.2 Cubes class 31 Jul &mdash; spatial thinking</td><td><span class="done">&#10003; Done by 2 Aug</span></td></tr>
+      <tr><td><span class="tnum" style="background:var(--pb);color:var(--p);">7</span></td><td><b>Mensuration</b></td><td>4</td><td>3&ndash;6 Aug</td><td>2D + 3D formulas + CAT-level Qs (30 Qs timed)</td><td>Take-Home 7 (5 Aug) &mdash; identify Mensuration Qs</td><td><span class="done">&#10003; Done by 6 Aug</span></td></tr>
+      <tr><td><span class="tnum" style="background:rgba(245,158,11,.25);color:#fbbf24;">8</span></td><td><b>Full Geometry Revision</b></td><td>7</td><td>7&ndash;13 Aug</td><td>Mixed PYQs, 40 Qs timed, error correction daily</td><td>SimCAT 9 (7 Aug) + CAT 2022 Slot 1 (12 Aug)</td><td><span style="background:var(--rb);color:var(--r);border-radius:6px;padding:2px 8px;font-size:10px;font-weight:700;">&#127937; Month 2 DONE!</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="sec-title">&#128221; Mock Test Calendar <span class="badge">13 Jul &ndash; 13 Aug</span></div>
+  <div class="mock-grid">
+    <div class="mc"><div class="mc-hdr" style="background:var(--rb);"><span style="font-size:18px;">&#128221;</span><div><div class="mc-date" style="color:var(--r);">15 Jul &middot; Wed</div><span class="mc-type" style="background:var(--rb);color:var(--r);">Take-Home</span></div></div><div class="mc-body"><b>Take-Home 5 SimCAT</b><br>&#8987; 8:30&ndash;10:30 PM &middot; Analysis: 16 Jul<br>&#128208; Set Theory Qs in mock</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--rb);"><span style="font-size:18px;">&#127919;</span><div><div class="mc-date" style="color:var(--r);">19 Jul &middot; Sun</div><span class="mc-type" style="background:var(--rb);color:var(--r);">Proctored</span></div></div><div class="mc-body"><b>SimCAT 7 @ Test Center</b><br>&#8987; All day (travel early)<br>Analysis: Mon 20 Jul full</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--bb);"><span style="font-size:18px;">&#128221;</span><div><div class="mc-date" style="color:var(--b);">22 Jul &middot; Wed</div><span class="mc-type" style="background:var(--bb);color:var(--b);">Past CAT</span></div></div><div class="mc-body"><b>CAT 2021 &ndash; Slot 3</b><br>&#8987; 3:00&ndash;5:00 PM (after IMS)<br>Analysis: Thu 23 Jul morning</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--ob);"><span style="font-size:18px;">&#127919;</span><div><div class="mc-date" style="color:var(--o);">26 Jul &middot; Sun</div><span class="mc-type" style="background:var(--ob);color:var(--o);">CMAT + Take-Home</span></div></div><div class="mc-body"><b>CMAT Test 1 + Take-Home 6</b><br>&#8987; CMAT: 9&ndash;12 PM &middot; TH6: 8:30 PM</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--rb);"><span style="font-size:18px;">&#128221;</span><div><div class="mc-date" style="color:var(--r);">31 Jul &middot; Fri</div><span class="mc-type" style="background:var(--rb);color:var(--r);">Proctored</span></div></div><div class="mc-body"><b>SimCAT 8</b><br>&#8987; 3:00&ndash;5:00 PM (after IMS)<br>Analysis: Sat 1 Aug morning</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--ob);"><span style="font-size:18px;">&#127919;</span><div><div class="mc-date" style="color:var(--o);">2 Aug &middot; Sun</div><span class="mc-type" style="background:var(--ob);color:var(--o);">CMAT</span></div></div><div class="mc-body"><b>CMAT Test 2</b><br>&#8987; 9:00 AM&ndash;12:00 PM<br>Analysis: 12&ndash;1 PM same day</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--rb);"><span style="font-size:18px;">&#128221;</span><div><div class="mc-date" style="color:var(--r);">5 Aug &middot; Wed</div><span class="mc-type" style="background:var(--rb);color:var(--r);">Take-Home</span></div></div><div class="mc-body"><b>Take-Home 7 SimCAT</b><br>&#8987; 8:30&ndash;10:30 PM &middot; Analysis: 6 Aug<br>&#128208; Circles Qs review</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--rb);"><span style="font-size:18px;">&#127919;</span><div><div class="mc-date" style="color:var(--r);">7 Aug &middot; Fri</div><span class="mc-type" style="background:var(--rb);color:var(--r);">Proctored</span></div></div><div class="mc-body"><b>SimCAT 9</b><br>&#8987; 3:00&ndash;5:00 PM (after IMS)<br>Analysis: Sat 8 Aug morning</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--ob);"><span style="font-size:18px;">&#127919;</span><div><div class="mc-date" style="color:var(--o);">9 Aug &middot; Sun</div><span class="mc-type" style="background:var(--ob);color:var(--o);">CMAT</span></div></div><div class="mc-body"><b>CMAT Test 3</b><br>&#8987; 9:00 AM&ndash;12:00 PM<br>Analysis: 12&ndash;1 PM same day</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--bb);"><span style="font-size:18px;">&#128221;</span><div><div class="mc-date" style="color:var(--b);">12 Aug &middot; Wed</div><span class="mc-type" style="background:var(--bb);color:var(--b);">Past CAT</span></div></div><div class="mc-body"><b>CAT 2022 &ndash; Slot 1</b><br>&#8987; 3:00&ndash;5:00 PM (after IMS)<br>Analysis: Thu 13 Aug</div></div>
+    <div class="mc"><div class="mc-hdr" style="background:var(--ob);"><span style="font-size:18px;">&#127919;</span><div><div class="mc-date" style="color:var(--o);">13 Aug &middot; Thu</div><span class="mc-type" style="background:var(--ob);color:var(--o);">CMAT (opt.)</span></div></div><div class="mc-body"><b>CMAT Test 4 (optional)</b><br>&#8987; 8:30&ndash;10:30 PM (condensed)<br>Final day option</div></div>
+  </div>
+
+</div>
+
+<!-- WEEK PANELS (populated by JS) -->
+<div class="panel" id="tab-w1"><div class="week-goal" id="wg-w1"></div><div class="days-grid" id="days-w1"></div></div>
+<div class="panel" id="tab-w2"><div class="week-goal" id="wg-w2"></div><div class="days-grid" id="days-w2"></div></div>
+<div class="panel" id="tab-w3"><div class="week-goal" id="wg-w3"></div><div class="days-grid" id="days-w3"></div></div>
+<div class="panel" id="tab-w4"><div class="week-goal" id="wg-w4"></div><div class="days-grid" id="days-w4"></div></div>
+<div class="panel" id="tab-w5"><div class="week-goal" id="wg-w5"></div><div class="days-grid" id="days-w5"></div></div>
+
+<!-- VARC TRACKER -->
+<div class="panel" id="tab-varc">
+  <div class="tr-info"><b>VARC RC Tracker</b> &mdash; Weekdays: <b>3 RC passages</b> (9:30&ndash;10:30 PM) &middot; Sundays: <b>6 RC passages</b> (8:30&ndash;10:30 PM). Score: /18 weekdays &middot; /24 Sundays. <b>Never repeat same topic on same day.</b> Fill in score + notes after each session.</div>
+  <div class="tr-wrap"><table class="tr-tbl"><thead><tr><th>Date</th><th>Day</th><th>RC 1</th><th>RC 2</th><th>RC 3</th><th>RC 4*</th><th>RC 5*</th><th>RC 6*</th><th>Q-Type Focus</th><th>Score</th></tr></thead><tbody id="varc-body"></tbody></table></div>
+</div>
+
+<!-- DILR TRACKER -->
+<div class="panel" id="tab-dilr">
+  <div class="tr-info"><b>DILR Set Tracker</b> &mdash; Weekdays: <b>2 sets</b> (8:30&ndash;9:30 PM) &middot; Sundays: <b>4 sets</b> (3:00&ndash;5:30 PM). <b>25 min per set, strictly timed. Never repeat type same day.</b><br>Rotation: Arrangements &middot; Conditions &amp; Grouping &middot; Deductive Reasoning &middot; Puzzles &middot; Observation-Based &middot; DI Misc &middot; LR Misc &middot; Cubes/Spatial &middot; Tournaments</div>
+  <div class="tr-wrap"><table class="tr-tbl"><thead><tr><th>Date</th><th>Day</th><th>Set 1</th><th>Set 2</th><th>Set 3* (Sun)</th><th>Set 4* (Sun)</th><th>Qs Done</th><th>Accuracy</th><th>Notes / Weak Patterns</th></tr></thead><tbody id="dilr-body"></tbody></table></div>
+</div>
+
+</main>
+<script>
+// ---- TABS ----
+['ov','w1','w2','w3','w4','w5','varc','dilr'].forEach(function(id){
+  document.getElementById('btn-'+id).addEventListener('click',function(){
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+    document.querySelectorAll('.tb').forEach(function(b){b.classList.remove('active');});
+    document.getElementById('tab-'+id).classList.add('active');
+    document.getElementById('btn-'+id).classList.add('active');
+  });
+});
+
+// ---- WEEK DATA ----
+var DC={
+  Sun:'#f87171',Mon:'#60a5fa',Tue:'#a78bfa',Wed:'#34d399',
+  Thu:'#fbbf24',Fri:'#f472b6',Sat:'#fb923c'
+};
+var DT={
+  regular:{lbl:'Weekday', bg:'var(--bb)', c:'var(--b)'},
+  ims:    {lbl:'IMS Day',  bg:'var(--gb)', c:'var(--g)'},
+  mock:   {lbl:'Mock Day', bg:'var(--rb)', c:'var(--r)'},
+  simcat: {lbl:'SimCAT',  bg:'var(--rb)', c:'var(--r)'},
+  cmat:   {lbl:'CMAT',    bg:'var(--ob)', c:'var(--o)'},
+  done:   {lbl:'DONE!',   bg:'var(--gb)', c:'var(--g)'}
+};
+
+function mkDay(d){
+  var dt=DT[d.type]||DT.regular;
+  var dc=DC[d.abbr]||'#94a3b8';
+  var hdr='<div class="dc-hdr" style="background:'+(d.sun?'rgba(168,85,247,.1)':'rgba(255,255,255,.02)')+'">'+
+    '<div class="dc-num" style="color:'+dc+'">'+d.n+'</div>'+
+    '<div class="dc-info"><div class="dc-name" style="color:'+dc+'">'+d.label+'</div>'+
+    '<div class="dc-sub">'+(d.sun?'&#9728; Sunday':'&#127981; College Day')+'</div></div>'+
+    '<span class="dc-badge" style="background:'+dt.bg+';color:'+dt.c+'">'+dt.lbl+'</span></div>';
+  var body='<div class="dc-body">';
+  d.secs.forEach(function(s){
+    body+='<div class="dc-sec"><div class="dc-sec-lbl" style="color:'+s.c+'">'+s.icon+' '+s.lbl+'</div>'+
+      '<div class="dc-sec-val">'+s.val.replace(/\n/g,'<br>')+'</div></div>';
+  });
+  body+='</div>';
+  var el=document.createElement('div');
+  el.className='dc';
+  if(d.type!=='regular')el.style.borderColor=dt.bg;
+  el.innerHTML=hdr+body;
+  return el;
+}
+
+var W={
+  w1:{goal:'<b>Week 1 Goals (13-19 Jul)</b>Set Theory complete &middot; Lines/Angles starts &middot; Take-Home 5 (Tue 15 Jul) &middot; SimCAT 7 Proctored (Sun 19 Jul) &middot; All sessions established from Day 1',
+  days:[
+    {n:'13',abbr:'Mon',label:'Mon 13 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: QA 4.4 Inequalities'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Set Theory - Day 1\nVenn diagrams: 2-circle problems\nIMS Q-bank: 20 Qs (untimed first)'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Arrangements + Conditions & Grouping\nVARC: 3 RC (Sci, Business, History)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Set Theory Day 1 START!'}
+    ]},
+    {n:'14',abbr:'Tue',label:'Tue 14 Jul',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Tuesday)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Set Theory - Day 2\n3-circle Venn problems\nIMS Q-bank: 25 Qs timed'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Deductive Reasoning + Arrangements\nVARC: 3 RC (Technology, Economics, Philosophy)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Set Theory Day 2 done'}
+    ]},
+    {n:'15',abbr:'Wed',label:'Wed 15 Jul',type:'mock',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: WS Module 4 Challengers'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Set Theory - Day 3\nMaxima-minima concept\nIMS Q-bank: 20 Qs timed'},
+      {icon:'&#128221;',lbl:'Take-Home 5 (8:30-10:30 PM)',c:'var(--r)',val:'TAKE-HOME 5 SimCAT\nFull 2 hrs attempt\nReplaces DILR+VARC session'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--r)',val:'Take-Home 5 - Analysis: 16 Jul morning'}
+    ]},
+    {n:'16',abbr:'Thu',label:'Thu 16 Jul',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Thursday)'},
+      {icon:'&#128208;',lbl:'QA + Analysis (3-5:30 PM)',c:'var(--q)',val:'Set Theory Day 4 + Take-Home 5 Analysis\nError pattern log, Set Theory Qs review'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Conditions & Grouping + Puzzles\nVARC: 3 RC (Philosophy, Literature, Culture)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'SET THEORY COMPLETE'}
+    ]},
+    {n:'17',abbr:'Fri',label:'Fri 17 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: DI 4.1 DI Misc Sets'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Lines, Angles & Triangles - Day 1\nParallel lines, transversals\nExterior angles: IMS notes + 15 Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Observation-Based + Deductive Reasoning\nVARC: 3 RC (Science, Social Issues, Trade)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Lines & Angles Day 1'}
+    ]},
+    {n:'18',abbr:'Sat',label:'Sat 18 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: VA 3.5(A) VA Practice 1'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Lines, Angles & Triangles - Day 2\nTriangle angle sum, exterior angle theorem\n25 IMS Qs timed'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: DI Misc + Conditions & Grouping\nVARC: 3 RC (apply VA Practice 1 strategies)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Lines & Angles Day 2'}
+    ]},
+    {n:'19',abbr:'Sun',label:'Sun 19 Jul',type:'simcat',sun:true,secs:[
+      {icon:'&#127919;',lbl:'SimCAT 7 - All Day',c:'var(--r)',val:'SimCAT 7 @ Test Center (PROCTORED)\nTravel early, full exam conditions\nFull attempt - no shortcuts'},
+      {icon:'&#128290;',lbl:'Evening (after test)',c:'var(--d)',val:'Quick initial notes on DILR + VARC\nFull analysis: Monday 20 Jul'},
+      {icon:'&#127869;',lbl:'Break 6-8:30 PM',c:'#64748b',val:'Dinner, rest, family - DO NOT STUDY'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--r)',val:'SimCAT 7 PROCTORED done! Full analysis Monday.'}
+    ]}
+  ]},
+
+  w2:{goal:'<b>Week 2 Goals (20-26 Jul)</b>SimCAT 7 full analysis &middot; Lines & Angles COMPLETE &middot; Triangles Part 1 &middot; CAT 2021 Slot 3 (Wed 22 Jul) &middot; CMAT Test 1 + Take-Home 6 (Sun 26 Jul)',
+  days:[
+    {n:'20',abbr:'Mon',label:'Mon 20 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: LR 4.1 LR Misc Sets'},
+      {icon:'&#128202;',lbl:'SimCAT 7 Analysis (3-5:30 PM)',c:'var(--r)',val:'SimCAT 7 Full QA Analysis\nLines/Angles Qs: which appeared?\nError pattern + Lines & Angles Day 3 preview'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'SimCAT 7 DILR section analysis\nSimCAT 7 VARC analysis - accuracy by Q-type'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'SimCAT 7 Full Analysis complete'}
+    ]},
+    {n:'21',abbr:'Tue',label:'Tue 21 Jul',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Tuesday)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Triangles Part 1 - Day 1\nCongruence: SAS, ASA, SSS, RHS\nSimilarity criteria + ratios\nIMS notes + 15 Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Deductive Reasoning + Arrangements\nVARC: 3 RC (Science, Business, Abstract)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Triangles Pt1 Day 1'}
+    ]},
+    {n:'22',abbr:'Wed',label:'Wed 22 Jul',type:'mock',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: VA 3.5(B) BMT VA Practice 1'},
+      {icon:'&#128221;',lbl:'CAT 2021 Slot 3 (3-5 PM)',c:'var(--b)',val:'Past CAT Paper - Full attempt\n2 hrs, strict timing, exam conditions'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'CAT 2021 DILR section analysis\nCAT 2021 VARC analysis - accuracy by Q-type'},
+      {icon:'&#128187;',lbl:'10 PM ONLINE',c:'var(--p)',val:'Set Theory Maxima-Minima: Foundation\n(attend - directly supports Set Theory!)'}
+    ]},
+    {n:'23',abbr:'Thu',label:'Thu 23 Jul',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Thursday)'},
+      {icon:'&#128208;',lbl:'QA + Analysis (3-5:30 PM)',c:'var(--q)',val:'Lines & Angles Day 4\nPYQs 30 Qs (35 min timed)\nCAT 2021 QA analysis: geometry Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Puzzles + Observation-Based\nVARC: 3 RC (Economics, History, Abstract)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'LINES & ANGLES COMPLETE - make formula sheet!'}
+    ]},
+    {n:'24',abbr:'Fri',label:'Fri 24 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: QA 4.5A Basic P&C-I (A)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Triangles Part 1 - Day 2\nSimilarity ratios, area ratio theorem\nMid-point theorem: 25 IMS Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Deductive Reasoning + Conditions & Grouping\nVARC: 3 RC (Science, Philosophy, Business)'},
+      {icon:'&#128187;',lbl:'7 PM ONLINE',c:'var(--p)',val:'SimCAT 7 VARC Analysis (7-8 PM)\nAttend before break - apply learnings tonight!'}
+    ]},
+    {n:'25',abbr:'Sat',label:'Sat 25 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: VA 4.5(A) RC Practice 2'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Triangles Part 1 - Day 2 (continued)\nSimilarity ratios, area ratio theorem\n25 IMS Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Arrangements + DI Misc\nVARC: 3 RC (apply RC Practice 2 class strategies)'},
+      {icon:'&#128187;',lbl:'7 PM ONLINE',c:'var(--p)',val:'SimCAT 5-7 QA Shortcuts (7-8 PM)\nNote geometry shortcuts - attend before break!'}
+    ]},
+    {n:'26',abbr:'Sun',label:'Sun 26 Jul',type:'cmat',sun:true,secs:[
+      {icon:'&#127919;',lbl:'CMAT Test 1 (9 AM-12 PM)',c:'var(--o)',val:'CMAT Test 1 - 3 hrs full attempt\nStrict timing - no distractions\nCMAT Analysis: 12:00-1:00 PM'},
+      {icon:'&#128208;',lbl:'QA (1-3 PM)',c:'var(--q)',val:'Triangles Pt1 Day 3\nPYQs 30 Qs timed (35 min)'},
+      {icon:'&#128290;',lbl:'DILR (3-5:30 PM)',c:'var(--d)',val:'4 sets full Sunday:\nPuzzles + Arrangements + Deductive + Observation-Based'},
+      {icon:'&#128221;',lbl:'Take-Home 6 (8:30-10:30 PM)',c:'var(--r)',val:'Take-Home 6 SimCAT - Full attempt after break'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--r)',val:'CMAT Test 1 + Take-Home 6 + Triangles Pt1 DONE!'}
+    ]}
+  ]},
+
+  w3:{goal:'<b>Week 3 Goals (27 Jul - 2 Aug)</b>Take-Home 6 Analysis &middot; Triangles Part 2 COMPLETE &middot; Polygons & Quads &middot; Circles starts &middot; SimCAT 8 Proctored (Fri 31 Jul) &middot; CMAT Test 2 (Sun 2 Aug)',
+  days:[
+    {n:'27',abbr:'Mon',label:'Mon 27 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: QA 4.5B Basic P&C-I (B)'},
+      {icon:'&#128202;',lbl:'Take-Home 6 Analysis (3-5:30 PM)',c:'var(--r)',val:'Take-Home 6 QA Analysis\nTriangles + Geometry Qs\nError pattern log'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: LR Misc + Deductive Reasoning\nVARC: 3 RC (Philosophy, History, Technology)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Take-Home 6 Analysis done - Triangles Pt2 begins!'}
+    ]},
+    {n:'28',abbr:'Tue',label:'Tue 28 Jul',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Tuesday)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Triangles Part 2 - Day 1\nSpecial: 30-60-90, 45-45-90\nTriangle centres: incentre, centroid\nIMS notes + 20 Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Conditions & Grouping + Puzzles\nVARC: 3 RC (Business, Science, Abstract)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Triangles Pt2 Day 1 - make centre formula card'}
+    ]},
+    {n:'29',abbr:'Wed',label:'Wed 29 Jul',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: VA 4.5(B) BMT RC Practice 2'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Triangles Part 2 - Day 2\nOrthocentre, circumcentre\nCAT-level Qs on centres (25 Qs)'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: DI Misc Sets + Arrangements\nVARC: 3 RC (RC Practice 2 alignment)'},
+      {icon:'&#128187;',lbl:'10 PM ONLINE',c:'var(--p)',val:'Set Theory Maxima-Minima: Finishing\nAttend - consolidates Set Theory!'}
+    ]},
+    {n:'30',abbr:'Thu',label:'Thu 30 Jul',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Thursday)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Triangles Part 2 - Day 3\n30 mixed PYQs timed (35 min)\nFull drill Pt1 + Pt2 combined\nMake complete formula sheet'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Deductive Reasoning + Observation-Based\nVARC: 3 RC (Literature, Social Issues, Economics)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'TRIANGLES COMPLETE! Preview Polygons: angle formula'}
+    ]},
+    {n:'31',abbr:'Fri',label:'Fri 31 Jul',type:'simcat',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: LR 4.2 Cubes Cutting & Painting'},
+      {icon:'&#128221;',lbl:'SimCAT 8 (3-5 PM)',c:'var(--r)',val:'SimCAT 8 Proctored - Full attempt\n2 hrs, strict timing, exam conditions\n(Also Polygons Day 1 notes from IMS)'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'SimCAT 8 DILR analysis\nSimCAT 8 VARC analysis - accuracy by Q-type'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--r)',val:'SimCAT 8 done! Full analysis: Sat 1 Aug'}
+    ]},
+    {n:'1',abbr:'Sat',label:'Sat 1 Aug',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS - check Aug schedule)'},
+      {icon:'&#128202;',lbl:'SimCAT 8 Analysis (3-5:30 PM)',c:'var(--r)',val:'SimCAT 8 Full QA Analysis\nGeometry Qs: which topics appeared?\nError pattern: Triangles vs Polygons vs Set Theory'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Cubes type + Conditions & Grouping\nVARC: 3 RC (re-attempt SimCAT 8 wrong passages)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'SimCAT 8 full analysis done - Polygons Day 2 tomorrow'}
+    ]},
+    {n:'2',abbr:'Sun',label:'Sun 2 Aug',type:'cmat',sun:true,secs:[
+      {icon:'&#127919;',lbl:'CMAT Test 2 (9 AM-12 PM)',c:'var(--o)',val:'CMAT Test 2 - 3 hrs full attempt\nCMAT Analysis: 12:00-1:00 PM'},
+      {icon:'&#128208;',lbl:'QA (1-3 PM)',c:'var(--q)',val:'Polygons & Quads Day 2\nTrapezium, kite, cyclic quad\n25 IMS Qs'},
+      {icon:'&#128290;',lbl:'DILR (3-5:30 PM)',c:'var(--d)',val:'4 sets full Sunday:\nArrangements + Puzzles + Deductive + Observation-Based'},
+      {icon:'&#128214;',lbl:'VARC (8:30-10:30 PM)',c:'var(--v)',val:'6 RC passages (full Sunday session)\n2 Science, 2 Business, 2 Philosophy'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--o)',val:'CMAT Test 2 done! Polygons Day 2 complete.'}
+    ]}
+  ]},
+
+  w4:{goal:'<b>Week 4 Goals (3-9 Aug)</b>Polygons COMPLETE &middot; Circles Days 1-3 &middot; Mensuration starts &middot; Take-Home 7 (Wed 5 Aug) &middot; SimCAT 9 Proctored (Fri 7 Aug) &middot; CMAT Test 3 (Sun 9 Aug)',
+  days:[
+    {n:'3',abbr:'Mon',label:'Mon 3 Aug',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: Check Aug schedule'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Polygons & Quads - Day 3\nDiagonal formulas, area methods\nPYQs 30 Qs timed (35 min)\nError log from CMAT Test 2'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: LR Misc + Deductive Reasoning\nVARC: 3 RC (Science, Philosophy, History)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'POLYGONS COMPLETE! Preview Circles: tangent definition'}
+    ]},
+    {n:'4',abbr:'Tue',label:'Tue 4 Aug',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Tuesday)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Circles - Day 1\nBasic: chord, radius, diameter\nAngles in circle: inscribed, central\nIMS notes + 15 Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Conditions & Grouping + Arrangements\nVARC: 3 RC (Business, Technology, Literature)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--b)',val:'Circles Day 1 - revise circle angle theorems'}
+    ]},
+    {n:'5',abbr:'Wed',label:'Wed 5 Aug',type:'mock',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: Check Aug schedule'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Circles - Day 2\nTangent-secant theorems\nCyclic quadrilateral angles\n25 IMS Qs'},
+      {icon:'&#128221;',lbl:'Take-Home 7 (8:30-10:30 PM)',c:'var(--r)',val:'TAKE-HOME 7 SimCAT\nFull 2 hrs attempt\nReplaces DILR+VARC session'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--r)',val:'Circles Day 2 + Take-Home 7. Analysis: 6 Aug morning'}
+    ]},
+    {n:'6',abbr:'Thu',label:'Thu 6 Aug',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Thursday)'},
+      {icon:'&#128202;',lbl:'Take-Home 7 Analysis (3-5:30 PM)',c:'var(--r)',val:'Take-Home 7 QA Analysis\nCircles + Geometry Qs\nError pattern log'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: TH7 DILR analysis + 1 Puzzles set\nVARC: TH7 VARC analysis - re-attempt wrong passages'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Take-Home 7 Full Analysis - Circles Day 3 tomorrow'}
+    ]},
+    {n:'7',abbr:'Fri',label:'Fri 7 Aug',type:'simcat',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: Check Aug schedule'},
+      {icon:'&#128221;',lbl:'SimCAT 9 (3-5 PM)',c:'var(--r)',val:'SimCAT 9 Proctored - Full attempt\nAlso: Circles Day 3 (25 IMS Qs from IMS)'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'SimCAT 9 DILR analysis\nSimCAT 9 VARC analysis - accuracy by Q-type'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--r)',val:'Circles Day 3 + SimCAT 9 done! Analysis: Sat 8 Aug'}
+    ]},
+    {n:'8',abbr:'Sat',label:'Sat 8 Aug',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS - check)'},
+      {icon:'&#128202;',lbl:'SimCAT 9 Analysis (3-5:30 PM)',c:'var(--r)',val:'SimCAT 9 Full QA Analysis\nGeometry topic distribution\nCircles + Mensuration preview'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Observation-Based + DI Misc\nVARC: 3 RC (Science, Abstract, Economics)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'CIRCLES COMPLETE - make formula card!'}
+    ]},
+    {n:'9',abbr:'Sun',label:'Sun 9 Aug',type:'cmat',sun:true,secs:[
+      {icon:'&#127919;',lbl:'CMAT Test 3 (9 AM-12 PM)',c:'var(--o)',val:'CMAT Test 3 - 3 hrs full attempt\nCMAT Analysis: 12:00-1:00 PM'},
+      {icon:'&#128208;',lbl:'QA (1-3 PM)',c:'var(--q)',val:'Mensuration Day 1\n2D: Area/perimeter all shapes\n15 IMS Qs'},
+      {icon:'&#128290;',lbl:'DILR (3-5:30 PM)',c:'var(--d)',val:'4 sets: Arrangements + Deductive + Puzzles + Conditions & Grouping'},
+      {icon:'&#128214;',lbl:'VARC (8:30-10:30 PM)',c:'var(--v)',val:'6 RC passages: 2 Science, 2 Business, 2 Philosophy'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--o)',val:'CMAT Test 3 + Mensuration Day 1 started!'}
+    ]}
+  ]},
+
+  w5:{goal:'<b>Week 5 Goals (10-13 Aug)</b>Mensuration COMPLETE &middot; CAT 2022 Slot 1 Final Assessment (Wed 12 Aug) &middot; Full Geometry Revision &middot; MONTH 2 COMPLETE!',
+  days:[
+    {n:'10',abbr:'Mon',label:'Mon 10 Aug',type:'ims',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: Check Aug schedule'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Mensuration - Day 2\n3D: Volume/surface area\nCube, cuboid, cylinder, cone, sphere\n25 IMS Qs'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: LR Misc + Observation-Based\nVARC: 3 RC (Philosophy, Technology, History)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Mensuration Day 2 - revise 3D formulas tonight'}
+    ]},
+    {n:'11',abbr:'Tue',label:'Tue 11 Aug',type:'regular',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Tuesday)'},
+      {icon:'&#128208;',lbl:'QA (3-5:30 PM)',c:'var(--q)',val:'Mensuration - Day 3\nCombined shapes, frustum, hollow shapes\n25 IMS Qs\nError log from Mensuration so far'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Deductive Reasoning + Arrangements\nVARC: 3 RC (Business, Literature, Abstract)'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--g)',val:'Mensuration Day 3 done - prep for CAT 2022 tomorrow'}
+    ]},
+    {n:'12',abbr:'Wed',label:'Wed 12 Aug',type:'mock',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College + IMS',c:'var(--b)',val:'College 8-11:20 AM\nIMS 1-3 PM: Check Aug schedule'},
+      {icon:'&#128221;',lbl:'CAT 2022 Slot 1 (3-5 PM)',c:'var(--b)',val:'Past CAT 2022 Slot 1\nFull 2 hrs, exam conditions, strict timing\nMonth 2 Final Assessment'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'CAT 2022 DILR analysis: set selection + timing\nCAT 2022 VARC analysis: accuracy across all 4 types'},
+      {icon:'&#11088;',lbl:'Milestone',c:'var(--b)',val:'CAT 2022 Slot 1 done! Full analysis: Thu 13 Aug'}
+    ]},
+    {n:'13',abbr:'Thu',label:'Thu 13 Aug',type:'done',sun:false,secs:[
+      {icon:'&#127981;',lbl:'College',c:'var(--b)',val:'College 8-11:20 AM\n(No IMS on Thursday)'},
+      {icon:'&#128202;',lbl:'CAT 2022 Analysis (3-5:30 PM)',c:'var(--b)',val:'CAT 2022 Full QA Analysis\nFull Geometry review: all 7 topics\nFinal error log + weak area list'},
+      {icon:'&#128290;',lbl:'DILR + VARC (8:30-10:30)',c:'var(--d)',val:'DILR: Best 2 set types - aim 85%+ accuracy\nVARC: 3 RC - compare accuracy vs Day 1 (13 Jul)'},
+      {icon:'&#128187;',lbl:'Plan Month 3',c:'var(--p)',val:'Next QA topics, DILR types to drill\nSet goals for Aug 14 onwards'},
+      {icon:'&#127937;',lbl:'MONTH 2 COMPLETE!',c:'var(--g)',val:'13 Jul to 13 Aug 2026\nWell done! On to Month 3!'}
+    ]}
+  ]}
+};
+
+// build all weeks
+Object.keys(W).forEach(function(wk){
+  var data=W[wk];
+  var gEl=document.getElementById('wg-'+wk);
+  if(gEl)gEl.innerHTML=data.goal;
+  var container=document.getElementById('days-'+wk);
+  if(!container)return;
+  data.days.forEach(function(d){container.appendChild(mkDay(d));});
+});
+
+// ---- VARC TABLE ----
+var VD=[
+  ['13 Jul','Mon','Physics','Trade','Geography','--','--','--','Inference','/18'],
+  ['14 Jul','Tue','Technology','Markets','Anthropology','--','--','--','Primary Purpose','/18'],
+  ['15 Jul','Wed','Science/Tech','Business','History','--','--','--','Critical Thinking','/18'],
+  ['16 Jul','Thu','Environment','Economics','Culture','--','--','--','Mixed All Types','/18'],
+  ['17 Jul','Fri','Biology','Finance','Social Issues','--','--','--','Specific/Direct','/18'],
+  ['18 Jul','Sat','Data Analysis','Management','Politics','--','--','--','Inference','/18'],
+  ['19 Jul','Sun','Environment','Economics','Culture','Ethics','Art/Music','Climate/Ecology','Specific/Direct','/24'],
+  ['20 Jul','Mon','Biology','Finance','Social Issues','--','--','--','Mixed All Types','/18'],
+  ['21 Jul','Tue','Data Analysis','Management','Politics','--','--','--','Critical Thinking','/18'],
+  ['22 Jul','Wed','Physics','Trade','Geography','--','--','--','Mixed All Types','/18'],
+  ['23 Jul','Thu','Technology','Markets','Anthropology','--','--','--','Primary Purpose','/18'],
+  ['24 Jul','Fri','Science/Tech','Business','History','--','--','--','Inference','/18'],
+  ['25 Jul','Sat','Environment','Economics','Culture','--','--','--','Critical Thinking','/18'],
+  ['26 Jul','Sun','Environment','Economics','Culture','Ethics','Art/Music','Climate/Ecology','Specific/Direct','/24'],
+  ['27 Jul','Mon','Biology','Finance','Social Issues','--','--','--','Mixed All Types','/18'],
+  ['28 Jul','Tue','Data Analysis','Management','Politics','--','--','--','Critical Thinking','/18'],
+  ['29 Jul','Wed','Physics','Trade','Geography','--','--','--','Inference','/18'],
+  ['30 Jul','Thu','Technology','Markets','Anthropology','--','--','--','Primary Purpose','/18'],
+  ['31 Jul','Fri','Science/Tech','Business','History','--','--','--','Mixed All Types','/18'],
+  ['01 Aug','Sat','Environment','Economics','Culture','--','--','--','Specific/Direct','/18'],
+  ['02 Aug','Sun','Biology','Finance','Social Issues','Psychology','Linguistics','Health/Medicine','Inference','/24'],
+  ['03 Aug','Mon','Data Analysis','Management','Politics','--','--','--','Critical Thinking','/18'],
+  ['04 Aug','Tue','Physics','Trade','Geography','--','--','--','Mixed All Types','/18'],
+  ['05 Aug','Wed','Technology','Markets','Anthropology','--','--','--','Primary Purpose','/18'],
+  ['06 Aug','Thu','Science/Tech','Business','History','--','--','--','Specific/Direct','/18'],
+  ['07 Aug','Fri','Environment','Economics','Culture','--','--','--','Mixed All Types','/18'],
+  ['08 Aug','Sat','Biology','Finance','Social Issues','--','--','--','Primary Purpose','/18'],
+  ['09 Aug','Sun','Data Analysis','Management','Politics','Cognition','Literary Criticism','Interdisciplinary','Inference','/24'],
+  ['10 Aug','Mon','Physics','Trade','Geography','--','--','--','Critical Thinking','/18'],
+  ['11 Aug','Tue','Technology','Markets','Anthropology','--','--','--','Specific/Direct','/18'],
+  ['12 Aug','Wed','Science/Tech','Business','History','--','--','--','Mixed All Types','/18'],
+  ['13 Aug','Thu','Environment','Economics','Culture','--','--','--','Inference','/18']
+];
+var vb=document.getElementById('varc-body');
+VD.forEach(function(r){
+  var isSun=r[1]==='Sun';
+  var tr=document.createElement('tr');
+  if(isSun)tr.className='srow';
+  r.forEach(function(v,i){
+    var td=document.createElement('td');
+    if(i===9){td.className='sc';td.textContent=v;}
+    else td.textContent=v;
+    tr.appendChild(td);
+  });
+  vb.appendChild(tr);
+});
+
+// ---- DILR TABLE ----
+var DD=[
+  ['13 Jul','Mon','Arrangements','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['14 Jul','Tue','Deductive Reasoning','Arrangements','-- (weekday)','-- (weekday)','/10','%',''],
+  ['15 Jul','Wed','Puzzles','DI Misc Sets','-- (weekday)','-- (weekday)','/10','%',''],
+  ['16 Jul','Thu','Conditions & Grouping','Puzzles','-- (weekday)','-- (weekday)','/10','%',''],
+  ['17 Jul','Fri','Observation-Based','Deductive Reasoning','-- (weekday)','-- (weekday)','/10','%',''],
+  ['18 Jul','Sat','DI Misc Sets','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['19 Jul','Sun','LR Misc Sets','Arrangements','Conditions & Grouping','Observation-Based','/20','%',''],
+  ['20 Jul','Mon','Arrangements','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['21 Jul','Tue','Deductive Reasoning','Arrangements','-- (weekday)','-- (weekday)','/10','%',''],
+  ['22 Jul','Wed','Puzzles','DI Misc Sets','-- (weekday)','-- (weekday)','/10','%',''],
+  ['23 Jul','Thu','Conditions & Grouping','Puzzles','-- (weekday)','-- (weekday)','/10','%',''],
+  ['24 Jul','Fri','Observation-Based','Deductive Reasoning','-- (weekday)','-- (weekday)','/10','%',''],
+  ['25 Jul','Sat','DI Misc Sets','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['26 Jul','Sun','LR Misc Sets','Arrangements','Conditions & Grouping','Observation-Based','/20','%',''],
+  ['27 Jul','Mon','Arrangements','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['28 Jul','Tue','Deductive Reasoning','Arrangements','-- (weekday)','-- (weekday)','/10','%',''],
+  ['29 Jul','Wed','Puzzles','DI Misc Sets','-- (weekday)','-- (weekday)','/10','%',''],
+  ['30 Jul','Thu','Conditions & Grouping','Puzzles','-- (weekday)','-- (weekday)','/10','%',''],
+  ['31 Jul','Fri','Observation-Based','Deductive Reasoning','-- (weekday)','-- (weekday)','/10','%',''],
+  ['01 Aug','Sat','DI Misc Sets','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['02 Aug','Sun','LR Misc Sets','Arrangements','Conditions & Grouping','Observation-Based','/20','%',''],
+  ['03 Aug','Mon','Arrangements','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['04 Aug','Tue','Deductive Reasoning','Arrangements','-- (weekday)','-- (weekday)','/10','%',''],
+  ['05 Aug','Wed','Puzzles','DI Misc Sets','-- (weekday)','-- (weekday)','/10','%',''],
+  ['06 Aug','Thu','Conditions & Grouping','Puzzles','-- (weekday)','-- (weekday)','/10','%',''],
+  ['07 Aug','Fri','Observation-Based','Deductive Reasoning','-- (weekday)','-- (weekday)','/10','%',''],
+  ['08 Aug','Sat','DI Misc Sets','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['09 Aug','Sun','LR Misc Sets','Arrangements','Conditions & Grouping','Observation-Based','/20','%',''],
+  ['10 Aug','Mon','Arrangements','Conditions & Grouping','-- (weekday)','-- (weekday)','/10','%',''],
+  ['11 Aug','Tue','Deductive Reasoning','Arrangements','-- (weekday)','-- (weekday)','/10','%',''],
+  ['12 Aug','Wed','Puzzles','DI Misc Sets','-- (weekday)','-- (weekday)','/10','%',''],
+  ['13 Aug','Thu','Conditions & Grouping','Puzzles','-- (weekday)','-- (weekday)','/10','%','']
+];
+var db=document.getElementById('dilr-body');
+DD.forEach(function(r){
+  var isSun=r[1]==='Sun';
+  var tr=document.createElement('tr');
+  if(isSun)tr.className='srow';
+  r.forEach(function(v,i){
+    var td=document.createElement('td');
+    if(i===6||i===7){td.className='sc';td.textContent=v;}
+    else td.textContent=v;
+    tr.appendChild(td);
+  });
+  db.appendChild(tr);
+});
+</script>
+</body>
+</html>
